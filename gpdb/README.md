@@ -2,8 +2,6 @@
 
 ## Installation
 
----
-
 1. Create minikube cluster
 
 ```sh
@@ -29,12 +27,10 @@ helm install greenplum-operator operator/
 4. Create Greenplum Cluster
 
 ```sh
-kubectl apply -f gp-instance.yaml
+kubectl apply -f ./config/gp-instance.yaml
 ```
 
 ## Notes
-
----
 
 - View exposed postgres url
 
