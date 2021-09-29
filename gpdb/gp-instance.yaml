@@ -1,0 +1,68 @@
+apiVersion: "greenplum.pivotal.io/v1"
+kind: "GreenplumCluster"
+metadata:
+  name: my-greenplum
+spec:
+  masterAndStandby:
+    hostBasedAuthentication: |
+      host   all   gpadmin   0.0.0.0/0   trust
+      # host   all   gpadmin   1.2.3.4/32   trust
+      # host   all   gpuser    0.0.0.0/0   md5
+    memory: "800Mi"
+    cpu: "0.2"
+    storageClassName: standard
+    storage: 1G
+    workerSelector: {}
+  segments:
+    primarySegmentCount: 3
+    memory: "800Mi"
+    cpu: "0.2"
+    storageClassName: standard
+    storage: 2G
+    workerSelector: {}
+  # gptext:
+  #   serviceName: "my-greenplum-gptext"
+  pl:
+    serviceName: "my-greenplum-pl"
+  pxf:
+    serviceName: "my-greenplum-pxf"
+# ---
+# apiVersion: "greenplum.pivotal.io/v1beta1"
+# kind: "GreenplumTextService"
+# metadata:
+#   name: my-greenplum-gptext
+# spec:
+#   solr:
+#     replicas: 2
+#     cpu: "0.1"
+#     memory: "0.3Gi"
+#     workerSelector: {}
+#     storageClassName: standard
+#     storage: 100M
+#   zookeeper:
+#     replicas: 3
+#     cpu: "0.1"
+#     memory: "0.3Gi"
+#     workerSelector: {}
+#     storageClassName: standard
+#     storage: 100M
+---
+apiVersion: "greenplum.pivotal.io/v1beta1"
+kind: "GreenplumPLService"
+metadata:
+  name: my-greenplum-pl
+spec:
+  replicas: 3
+  cpu: "0.5"
+  memory: "0.4Gi"
+  workerSelector: {}
+---
+apiVersion: "greenplum.pivotal.io/v1beta1"
+kind: "GreenplumPXFService"
+metadata:
+  name: my-greenplum-pxf
+spec:
+  replicas: 2
+  cpu: "0.5"
+  memory: "0.4Gi"
+  workerSelector: {}
