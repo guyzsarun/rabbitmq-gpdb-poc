@@ -9,6 +9,7 @@ def generate_json(dataframe):
     for index, row in dataframe.iterrows():
         data = {
             "temperature": row["temperature"],
+            "temperature_2": row["temperature_2"],
             "humidity": row["humidity"],
             "pm2.5": row["pm25"],
         }
@@ -27,6 +28,8 @@ def main(timeslot, basetmp):
     pm25 = np.random.normal(90, 15, timeslot)
     humid = np.random.normal(50, 15, timeslot)
 
+    temp2_fluc = np.random.normal(15, 3, timeslot)
+
     # Add seasonal data
     max_temp = 1
     seasonal = np.arange(0, max_temp, max_temp / timeslot)
@@ -34,12 +37,14 @@ def main(timeslot, basetmp):
     temp_flux = np.random.rand(len(time)) * (3)
 
     temp = temp_flux + basetmp + seasonal
+    temp2_fluc = temp + temp2_fluc
     pm25 = pm25 + seasonal_pm
 
     date_index = index[: len(temp)]
 
     df = pd.DataFrame(date_index, columns=["timestamp"])
     df["temperature"] = pd.Series(temp, index=df.index)
+    df["temperature_2"] = pd.Series(temp2_fluc, index=df.index)
     df["humidity"] = pd.Series(humid, index=df.index)
     df["pm25"] = pd.Series(pm25, index=df.index)
 
@@ -49,7 +54,7 @@ def main(timeslot, basetmp):
 if __name__ == "__main__":
 
     # Number of data points
-    timeslot = 200000
+    timeslot = 1000
     basetemp = 30
 
     main(timeslot, basetemp)

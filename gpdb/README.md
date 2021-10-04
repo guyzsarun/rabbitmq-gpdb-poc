@@ -32,21 +32,23 @@ kubectl apply -f ./config/gp-instance.yaml
 
 ## Install MADlib
 
+---
+
 On master host
 
 ```sh
 madpack -p greenplum -c gpadmin@localhost:5432/<database-name> install
 ```
 
-Run Machine Learning Module tests
+Run MADlib module tests
 
 ```sh
 madpack install-check -p greenplum -c gpadmin@localhost:5432/<database-name>
 ```
 
----
-
 ## Notes
+
+---
 
 - View exposed postgres url
 
