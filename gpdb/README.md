@@ -9,7 +9,7 @@ minikube start --kubernetes-version=v1.18.10 --cpus='6' --memory='8g' --driver=v
 ```
 
 2. Load Greenplum Operator and Docker Image to current terminal
-   ( Download from [Pivotal ](https://network.pivotal.io/))
+   ( Download from [Pivotal](https://network.pivotal.io/))
 
 ```sh
 eval $(minikube docker-env)
@@ -69,4 +69,10 @@ gpssh -f ~/hosts -e "du -b /greenplum/data/base/<oid>" | \
     awk -F " " '{ arr[$1] = arr[$1] + $2 ; tot = tot + $2 }; END \
     { for ( i in arr ) print "Segment node" i, arr[i], "bytes (" arr[i]/(1024^3)" GB)"; \
     print "Total", tot, "bytes (" tot/(1024^3)" GB)" }' -
+```
+
+- Enable PL/python support
+
+```sh
+psql -d <db-name> -c 'CREATE EXTENSION plpythonu;'
 ```
