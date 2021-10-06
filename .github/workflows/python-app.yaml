@@ -23,5 +23,5 @@ jobs:
           black . --check --verbose
       - name: Test Generate Data
         run: |
-          python3 ./gpdb/data/data-generator.py --csv tmp.csv
+          python ./gpdb/data/data-generator.py --csv tmp.csv
           (test -f tmp.csv && echo Generated file exists) || exit 1
