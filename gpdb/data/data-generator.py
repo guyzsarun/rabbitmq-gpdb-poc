@@ -1,4 +1,5 @@
 import argparse
+
 import json
 import numpy as np
 import pandas as pd
@@ -18,7 +19,7 @@ def generate_json(dataframe):
         print(json_dump)
 
 
-def main(timeslot, basetmp):
+def main(timeslot, basetmp, csv):
 
     sdate = date(1997, 3, 22)  # start date
     edate = date(2020, 4, 9)  # end date
@@ -49,13 +50,41 @@ def main(timeslot, basetmp):
     df["humidity"] = pd.Series(humid, index=df.index)
     df["pm25"] = pd.Series(pm25, index=df.index)
 
+    if csv != None:
+        df.to_csv(csv, index=False)
+
     generate_json(df)
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Temperature, Humidity Data generator")
 
-    # Number of data points
-    timeslot = 1000
-    basetemp = 30
+    parser.add_argument(
+        "-t",
+        "--timeslot",
+        action="store",
+        type=int,
+        required=False,
+        default=1000,
+        help="Number of data point generated",
+    )
+    parser.add_argument(
+        "-b",
+        "--basetmp",
+        action="store",
+        type=int,
+        required=False,
+        default=30,
+        help="Base temperature 1",
+    )
+    parser.add_argument(
+        "--csv",
+        action="store",
+        type=str,
+        required=False,
+        help="Name of the csv file to genetate",
+    )
 
-    main(timeslot, basetemp)
+    args = parser.parse_args()
+
+    main(args.timeslot, args.basetmp, args.csv)
