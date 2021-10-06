@@ -30,7 +30,25 @@ helm install greenplum-operator operator/
 kubectl apply -f ./config/gp-instance.yaml
 ```
 
+## Install MADlib
+
+---
+
+On master host
+
+```sh
+madpack -p greenplum -c gpadmin@localhost:5432/<database-name> install
+```
+
+Run MADlib module tests
+
+```sh
+madpack install-check -p greenplum -c gpadmin@localhost:5432/<database-name>
+```
+
 ## Notes
+
+---
 
 - View exposed postgres url
 
@@ -63,12 +81,26 @@ SELECT oid, datname FROM pg_database;
 
 - View data distribution across segment
 
+```sql
+SELECT * FROM gp_segment_configuration;
+```
+
 ```sh
 gpssh -f ~/hosts -e "du -b /greenplum/data/base/<oid>" | \
     grep -v "du -b" | sort | \
     awk -F " " '{ arr[$1] = arr[$1] + $2 ; tot = tot + $2 }; END \
     { for ( i in arr ) print "Segment node" i, arr[i], "bytes (" arr[i]/(1024^3)" GB)"; \
     print "Total", tot, "bytes (" tot/(1024^3)" GB)" }' -
+```
+
+- View, Stop running queries
+
+```sql
+SELECT * FROM pg_stat_activity; --- Get pid
+
+SELECT pg_cancel_backend(<pid>);
+or
+SELECT pg_terminate_backend(<pid>);
 ```
 
 - Enable PL/python support
