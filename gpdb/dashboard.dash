@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "dashboardHeight": 1480,
+    "dashboardWidth": 2120
+  },
+  "version": 1,
+  "outputs": {
+    "fae15e3e-a2ca-498d-a658-60e154fe1d65": [
+      {
+        "cellId": "7936d6b3-3419-4a8d-bb74-84238e516694",
+        "pos": {
+          "left": 832,
+          "top": 128,
+          "width": 480,
+          "height": 352
+        }
+      },
+      {
+        "cellId": "70614908-a37d-4742-aeaa-1d42c5d2a99b",
+        "pos": {
+          "left": 32,
+          "top": 32,
+          "width": 768,
+          "height": 480
+        }
+      },
+      {
+        "cellId": "59300cfb-ba19-46a1-a9bc-0c2d019e8b78",
+        "pos": {
+          "left": 928,
+          "top": 608,
+          "width": 640,
+          "height": 384
+        }
+      },
+      {
+        "cellId": "7780ae59-cdf2-4762-a68a-4b373266253f",
+        "pos": {
+          "left": 32,
+          "top": 544,
+          "width": 864,
+          "height": 544
+        }
+      }
+    ]
+  },
+  "paths": {
+    "gpdb/madlib-demo.ipynb": "fae15e3e-a2ca-498d-a658-60e154fe1d65"
+  }
+}
