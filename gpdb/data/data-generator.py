@@ -32,7 +32,7 @@ def main(timeslot, basetmp, csv):
     humid = np.random.normal(50, 5, timeslot)
 
     temp2_fluc = np.random.normal(10, 3, timeslot)
-    power_fluc = np.random.normal(50,1, timeslot)
+    power_fluc = np.random.normal(50, 1, timeslot)
 
     # Add seasonal data
     max_temp = 1
@@ -44,7 +44,6 @@ def main(timeslot, basetmp, csv):
     temp2_fluc = temp - temp2_fluc
     pm25 = pm25 + seasonal_pm
     power = power_fluc + temp
-
 
     date_index = index[: len(temp)]
 
