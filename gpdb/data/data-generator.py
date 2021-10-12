@@ -29,7 +29,7 @@ def main(timeslot, basetmp, csv):
 
     time = np.sin(np.arange(0, timeslot, 1))
     pm25 = np.random.normal(90, 15, timeslot)
-    humid = np.random.normal(50, 5, timeslot)
+    humid = np.random.normal(50, 15, timeslot)
 
     temp2_fluc = np.random.normal(10, 3, timeslot)
     power_fluc = np.random.normal(50, 1, timeslot)
