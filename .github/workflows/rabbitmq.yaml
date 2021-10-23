@@ -19,4 +19,4 @@ jobs:
       - name: Cleanup
         if: always()
         run: |
-          docker-compose -f "docker-compose.yml" down
+          cd rabbitmq && docker-compose -f "docker-compose.yml" down
