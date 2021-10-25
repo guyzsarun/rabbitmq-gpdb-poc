@@ -5,8 +5,6 @@
 
 ## Installation
 
----
-
 Clone the repo from Github
 
 ```
@@ -16,8 +14,6 @@ git clone --recursive https://github.com/guyzsarun/rabbitmq-gpdb-poc.git
 Separate README is available for [RabbitMQ](https://github.com/guyzsarun/rabbitmq-gpdb-poc/blob/master/rabbitmq/README.md) and [Greenplum Database](https://github.com/guyzsarun/rabbitmq-gpdb-poc/blob/master/gpdb/README.md) in subfolder
 
 ## Project Structure
-
----
 
     .
     ├── gpdb                            # Greenplum Database folder
@@ -39,8 +35,6 @@ Separate README is available for [RabbitMQ](https://github.com/guyzsarun/rabbitm
 
 ## Usage
 
----
-
 To integrate Greenplum with RabbitMQ update the env variables in RabbitMQ [docker-compose](https://github.com/guyzsarun/rabbitmq-gpdb-poc/blob/master/rabbitmq/docker-compose.yml) with Greenplum cluster credentials.
 
 ```yaml
@@ -58,8 +52,6 @@ spring-consumer:
 ```
 
 ## Resources
-
----
 
 <img src="https://rabbitmq.com/img/logo-rabbitmq.svg" width="200" align="center"> <br>
 
