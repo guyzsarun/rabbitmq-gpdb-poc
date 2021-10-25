@@ -1,0 +1,3 @@
+[submodule "rabbitmq/hotel-controller-demo"]
+	path = rabbitmq/hotel-controller-demo
+	url = https://github.com/Raksani/hotel-controller-demo.git
