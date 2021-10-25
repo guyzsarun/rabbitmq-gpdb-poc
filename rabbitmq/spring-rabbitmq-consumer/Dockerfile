@@ -10,8 +10,6 @@ FROM openjdk:8-jre-alpine
 
 WORKDIR /app
 
-RUN ls
-
 COPY --from=MAVEN_BUILD /build/target/spring-rabbitmq-consumer-0.0.1-SNAPSHOT.jar /app/
 
 ENTRYPOINT ["java", "-jar", "spring-rabbitmq-consumer-0.0.1-SNAPSHOT.jar"]
