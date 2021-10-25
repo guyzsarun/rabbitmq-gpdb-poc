@@ -21,27 +21,10 @@ or setup the service manually
 
 Start your container (_`my-rabbit`_ is the name of container, _be able to modify_)
 
-<<<<<<< HEAD
-## Prerequisite
-
-### Docker Setup
-
-=======
->>>>>>> master
 ```
 docker run -d -p 5672:5672 -p 15672:15672 --name my-rabbit rabbitmq:3-management
 ```
 
-<<<<<<< HEAD
-or build all rabbitmq services with docker-compose
-
-### Docker-compose
-
-```
-docker-compose build
-docker-compose up
-```
-=======
 ## 2. Start RabbitMQ Producer and Consumer
 
 RabbitMQ producer has responsible for receiving data from APIs to the queue and RabbitMQ consumer pass those data from queue and store data to PostgreSQL database. Therefore, we must start producer and cosumer respectively.
@@ -83,4 +66,3 @@ yarn start
 
 App will be available on port `3000`
 _\*\*For more details about `yarn` commands, please visit [here](https://github.com/Raksani/hotel-controller-demo/tree/main/hotel-controller-UI#readme)._
->>>>>>> master
