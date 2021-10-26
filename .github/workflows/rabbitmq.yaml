@@ -12,6 +12,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - name: Checkout submodules
+        run: git submodule update --init --recursive
+
       - name: Build Docker Image
         run: |
           cd rabbitmq && docker-compose -f "docker-compose.yml" up -d --build

@@ -1,5 +1,19 @@
 version: "3.9"
 services:
+  ui-service-frontend:
+    build: hotel-controller-demo/hotel-controller-UI
+    ports:
+      - 3000:3000
+  ui-service-backend:
+    build: hotel-controller-demo/express-postgres
+    ports:
+      - 3001:3001
+    environment:
+      PORT: 5432
+      USER: "postgres"
+      PASSWORD: 123
+      DATABASE: "testdb"
+      HOST: "db"
   rabbitmq:
     image: rabbitmq:3-management
     ports:
