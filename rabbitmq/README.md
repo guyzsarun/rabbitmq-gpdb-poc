@@ -1,8 +1,7 @@
 # Overview Architecture
 
-## System Flow
-
-_under constrcution... waiting for the flow diagram_
+## System Architecture (Briefly)
+<img width="543" alt="Screen Shot 2564-11-08 at 00 48 25" src="https://user-images.githubusercontent.com/32285705/140655993-f5714094-827c-48b3-970b-c3d364b5012b.png">
 
 # Prerequisite
 
